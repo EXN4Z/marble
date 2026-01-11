@@ -1,9 +1,10 @@
 import "./globals.css";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Travel Explorer",
-  description: "Discover the world's hidden wonders",
+  title: "CarV - Wood Carving",
+  description: "Make your wood crafts very interesting",
 };
 
 export default function RootLayout({
@@ -14,15 +15,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans">
-        {/* NAVBAR */}
-        <header className="border-b">
+        <header className="border-b border-transparent mt-2">
           <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            {/* Logo */}
+
             <Link href="/" className="text-xl font-bold">
-              Logo
+              <Image
+                src="/images/logo.png"
+                alt=""
+                width={150}
+                height={40}
+              />
             </Link>
 
-            {/* Menu */}
             <ul className="hidden md:flex items-center gap-8 text-sm">
               <li>
                 <Link href="/" className="hover:text-gray-600">
@@ -46,25 +50,19 @@ export default function RootLayout({
               </li>
             </ul>
 
-            {/* Action */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-6">
               <button className="hidden md:block text-sm">
                 Sign in
               </button>
-              <button className="px-4 py-2 rounded-full bg-black text-white text-sm">
-                Explore
+              <button className="px-4 py-2 rounded-full bg-white text-black text-sm">
+                Log in
               </button>
             </div>
           </nav>
         </header>
 
-        {/* PAGE CONTENT */}
         <main>{children}</main>
 
-        {/* FOOTER (placeholder dulu) */}
-        <footer className="mt-24 py-10 text-center text-sm text-gray-500">
-          © 2026 Travel Explorer
-        </footer>
       </body>
     </html>
   );
