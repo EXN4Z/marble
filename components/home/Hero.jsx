@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function Hero() {
   return (
     <section className="max-w-7xl mx-auto px-6 pt-20 grid md:grid-cols-2 gap-12 bg-">
@@ -12,17 +13,23 @@ export default function Hero() {
           Carv aims to preserve traditional wood carving while adapting it to modern style and needs.
         </p>
 
-        <button className="mt-8 px-6 py-3 rounded-full bg-black text-white">
+        <button className="mt-8 px-6 py-3 rounded-full bg-black text-white shadow-xl transition">
           Explore Now
         </button>
       </div>
 
       <div className="grid grid-cols-2 gap-8 relative">
-      <div className="bg-gray-300 rounded-3xl h-96 translate-y-3"></div>
+      <div className="rounded-3xl h-86 translate-y-3">
+        <Image className="rounded-3xl" src="/images/image1.png" alt="Hero Image" width={400} height={400} />
+      </div>
 
         <div className="relative">
-          <div className="bg-gray-300 rounded-3xl h-72 transform -translate-y-8"></div>
-          <div className="bg-gray-300 rounded-3xl h-48 transform translate-y-1"></div>
+          <div className="rounded-3xl h-72 transform -translate-y-8">
+            <Image className="rounded-3xl" src="/images/image2.png" alt="Hero Image" width={400} height={400} />
+          </div>
+          <div className="rounded-3xl h-44 transform translate-y-1">
+            <Image className="rounded-3xl" src="/images/image3.png" alt="Hero Image" width={400} height={400} />
+          </div>
         </div>
 
       </div>

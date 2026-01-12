@@ -27,7 +27,7 @@ export default function RootLayout({
               />
             </Link>
 
-            <ul className="hidden md:flex items-center gap-8 text-sm">
+            <ul className="hidden md:flex items-center gap-8 ml-100">
               <li>
                 <Link href="/" className="hover:text-gray-600">
                   Discover
