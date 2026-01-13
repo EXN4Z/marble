@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function Login() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-4">
-      <div className="max-w-270 h-130 mx-auto bg-white p-8 rounded-4xl shadow-lg flex flex-row items-center gap-12">
+      <div className="max-w-270 h-150 mx-auto bg-white p-8 rounded-4xl shadow-lg flex flex-row items-center gap-12">
         <Image
-          className="rounded-4xl max-w-80"
+          className="rounded-4xl max-w-90"
           src="/images/gambar.jpg"
           alt="Hero Image"
           width={400}

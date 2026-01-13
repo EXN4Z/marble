@@ -1,13 +1,5 @@
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className="font-sans">
-        <main>{children}</main>
-      </body>
-    </html>
-  );
+import { ReactNode } from 'react';
+
+export default function AuthLayout({ children }: { children: ReactNode }) {
+  return <>{children}</>;
 }
