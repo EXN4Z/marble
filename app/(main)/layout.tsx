@@ -20,7 +20,7 @@ export default function MainLayout({
 
           <ul className="hidden md:flex items-center gap-8 ml-100">
             <li><Link href="/">Discover</Link></li>
-            <li><Link href="/">Destinations</Link></li>
+            <li><Link href="/service">Service</Link></li>
             <li><Link href="/">Stories</Link></li>
             <li><Link href="/">About</Link></li>
           </ul>
@@ -35,7 +35,7 @@ export default function MainLayout({
 
         <div className={`absolute top-16 right-6 bg-black/80 text-white backdrop-blur-md rounded-2xl p-6 flex flex-col gap-4 md:hidden transition-all duration-300 ${open ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
           <Link href="/" onClick={() => setOpen(false)}>Discover</Link>
-          <Link href="/" onClick={() => setOpen(false)}>Destinations</Link>
+          <Link href="/service" onClick={() => setOpen(false)}>Service</Link>
           <Link href="/" onClick={() => setOpen(false)}>Stories</Link>
           <Link href="/" onClick={() => setOpen(false)}>About</Link>
           <hr className="border-white/20" />
