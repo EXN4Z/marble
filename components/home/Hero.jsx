@@ -2,18 +2,24 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section id="home" className="max-w-7xl mx-auto px-6 pt-20 grid md:grid-cols-2 gap-12 text-black">
-          <div
-            className="
-                pointer-events-none
-                absolute
-                top-[-20%]
-                left-[5%]
-                right-[5%]
-                bottom-0
-                bg-[linear-gradient(to_right,rgba(140,124,77,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(140,124,77,0.15)_1px,transparent_1px)]
-                bg-size-[90px_90px]
-                rotate-12
-            "/> 
+      <div
+        className="
+          pointer-events-none
+          absolute
+          top-[-20%]
+          left-[-20%]
+          right-[30%]
+          sm:left-[-5%]
+          sm:right-[-5%]
+          md:left-[5%]
+          md:right-[5%]
+          bottom-0
+          bg-[linear-gradient(to_right,rgba(140,124,77,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(140,124,77,0.15)_1px,transparent_1px)]
+          bg-size-[90px_90px]
+          rotate-12
+        "
+      />
+      
       <div>
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
           Discover the <br /> Beauty of Carving
