@@ -61,7 +61,7 @@ export default function MainLayout({
       <footer className="bg-[#1c140d] text-white mt-24">
         <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
           <div>
-            <Image src="/images/logo3.png" alt="CarV" width={140} height={40} />
+            <Image src="/images/logo_white.png" alt="CarV" width={140} height={40} />
             <p className="mt-4 text-sm text-white/70">
               Handcrafted Wood, Timeless Art.  
               CarV brings handcrafted wood carving with passion and precision.

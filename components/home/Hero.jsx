@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Model3D from "@/components/Model3D";
+
 export default function Hero() {
   return (
     <section id="home" className="max-w-7xl mx-auto px-6 pt-20 grid md:grid-cols-2 gap-12 text-black">
@@ -19,7 +20,7 @@ export default function Hero() {
           rotate-12
         "
       />
-      
+
       <div>
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
           Discover the <br /> Beauty of Carving
@@ -36,20 +37,8 @@ export default function Hero() {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 gap-8 relative">
-      <div className="rounded-3xl h-86 translate-y-3">
-        <Image className="rounded-3xl" src="/images/image1.png" alt="Hero Image" width={400} height={400} />
-      </div>
-
-        <div className="relative">
-          <div className="rounded-3xl transform -translate-y-8">
-            <Image className="rounded-3xl" src="/images/image2.png" alt="Hero Image" width={400} height={400} />
-          </div>
-          <div className="rounded-3xl transform translate-y-1 sm:mt-0">
-            <Image className="rounded-3xl" src="/images/image3.png" alt="Hero Image" width={400} height={400} />
-          </div>
-        </div>
-
+      <div className="flex items-center justify-center">
+        <Model3D />
       </div>
     </section>
   );
