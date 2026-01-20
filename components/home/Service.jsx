@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function Service() {
   const products = [
@@ -10,35 +10,52 @@ export default function Service() {
       name: "Furniture",
       desc: "Premium crafted design",
       price: "$10",
-      images: ["/images/1.jpg", "/images/2.jpg", "/images/3.jpg"],
+      images: [
+        "/service/furniture/service1.jpg",
+        "/service/furniture/service2.jpg",
+        "/service/furniture/service3.jpg",
+      ],
     },
     {
       id: 2,
       name: "Door",
       desc: "Spacious & elegant dining",
       price: "$30",
-      images: ["/images/5.jpg", "/images/6.jpg", "/images/7.jpg"],
+      images: [
+        "/service/door/1.jpg",
+        "/service/door/2.jpg",
+        "/service/door/3.png",
+      ],
     },
     {
       id: 3,
       name: "Table",
       desc: "Perfect compact style",
       price: "$25",
-      images: ["/images/2.jpg", "/images/3.jpg", "/images/4.jpg"],
+      images: [
+        "/service/table/1.jpg",
+        "/service/table/2.jpg",
+        "/service/table/3.jpg",
+      ],
     },
     {
       id: 4,
       name: "Chair",
       desc: "Comfortable quality seating",
       price: "$15",
-      images: ["/images/4.jpg", "/images/1.jpg", "/images/5.jpg"],
+      images: [
+        "/service/chair/1.jpg",
+        "/service/chair/2.jpg",
+        "/service/chair/3.jpg",
+      ],
     },
   ];
 
-  // ===== GALLERY STATE =====
   const [open, setOpen] = useState(false);
   const [images, setImages] = useState([]);
   const [index, setIndex] = useState(0);
+
+  const galleryRef = useRef(null);
 
   const openGallery = (imgs) => {
     setImages(imgs);
@@ -48,18 +65,21 @@ export default function Service() {
 
   const closeGallery = () => setOpen(false);
 
-  const next = () =>
-    setIndex((prev) => (prev + 1) % images.length);
+  const scrollToIndex = (i) => {
+    const el = galleryRef.current;
+    if (!el) return;
 
-  const prev = () =>
-    setIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
+    const width = el.clientWidth;
+    el.scrollTo({
+      left: width * i,
+      behavior: "smooth",
+    });
+
+    setIndex(i);
+  };
 
   useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === "Escape") setOpen(false);
-    };
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
@@ -68,7 +88,14 @@ export default function Service() {
     <section id="service" className="max-w-7xl mx-auto px-6 py-10">
       <h2 className="text-3xl font-bold mb-6">Service</h2>
 
-      <div className="flex lg:grid gap-8 overflow-x-auto lg:grid-cols-4 p-6 bg-[#8c7c4d]/40 rounded-sm backdrop-blur-md border border-black/10">
+      <div
+        className="
+          flex lg:grid gap-8 overflow-x-auto
+          lg:grid-cols-4 lg:overflow-visible
+          p-6 bg-[#8c7c4d]/40 rounded-sm backdrop-blur-md
+          border border-black/10
+        "
+      >
         {products.map((product) => (
           <div key={product.id} className="shrink-0 w-64 lg:w-auto">
             <Image
@@ -77,7 +104,10 @@ export default function Service() {
               width={250}
               height={300}
               onClick={() => openGallery(product.images)}
-              className="w-full h-64 object-cover rounded-lg cursor-pointer hover:scale-[1.03] transition"
+              className="
+                w-full h-64 object-cover rounded-lg cursor-pointer
+                transition-transform hover:scale-[1.03]
+              "
             />
 
             <div className="p-4 -mx-3">
@@ -92,7 +122,6 @@ export default function Service() {
         ))}
       </div>
 
-      {/* ===== MODERN GALLERY MODAL ===== */}
       {open && (
         <div
           onClick={closeGallery}
@@ -100,45 +129,119 @@ export default function Service() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-[90%] max-w-2xl"
+            className="relative w-full max-w-4xl px-4"
           >
-            <Image
-              src={images[index]}
-              alt="Gallery"
-              width={800}
-              height={500}
-              className="w-full h-105 object-cover rounded-xl shadow-xl transition-all"
-            />
 
-            {/* NAV BUTTONS */}
+            <div
+              ref={galleryRef}
+              className="
+                flex overflow-x-auto
+                snap-x snap-mandatory scroll-smooth
+                no-scrollbar
+              "
+            >
+              {images.map((img, i) => (
+                <div
+                  key={i}
+                  className="shrink-0 w-full snap-center flex justify-center"
+                >
+                  <Image
+                    src={img}
+                    alt="Gallery"
+                    width={700}
+                    height={535}
+                    className="
+                      w-full
+                      max-w-175
+                      max-h-133.75
+                      object-contain
+                      rounded-xl
+                    "
+                  />
+                </div>
+              ))}
+            </div>
+
             <button
-              onClick={prev}
-              className="absolute -left-20 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-white/40 text-white flex items-center justify-center hover:bg-[#3a2a1a] transition"
+              onClick={() => scrollToIndex(Math.max(index - 1, 0))}
+              className="
+                hidden md:flex absolute -left-20 top-1/2 -translate-y-1/2
+                w-10 h-10 rounded-full
+                border border-white/40 text-white
+                items-center justify-center
+                hover:bg-[#3a2a1a]
+              "
             >
               ‹
             </button>
 
             <button
-              onClick={next}
-              className="absolute -right-20 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-white/40 text-white flex items-center justify-center hover:bg-[#3a2a1a] transition"
+              onClick={() =>
+                scrollToIndex(Math.min(index + 1, images.length - 1))
+              }
+              className="
+                hidden md:flex absolute -right-20 top-1/2 -translate-y-1/2
+                w-10 h-10 rounded-full
+                border border-white/40 text-white
+                items-center justify-center
+                hover:bg-[#3a2a1a]
+              "
             >
               ›
             </button>
 
-            {/* CLOSE */}
             <button
               onClick={closeGallery}
-              className="absolute top-4 right-4 w-9 h-9 rounded-full text-white border border-white/40 hover:bg-[#3a2a1a] transition"
+              className="
+                absolute md:top-4 hidden right-8 
+                w-9 h-9 rounded-full
+                border border-white/40 text-white
+                hover:bg-[#3a2a1a]
+              "
             >
               ✕
             </button>
 
-            {/* DOT INDICATOR */}
+            <button
+              onClick={() => scrollToIndex(Math.max(index - 1, 0))}
+              className="
+                md:hidden
+                absolute
+                left-6
+                -bottom-4
+                w-9 h-9
+                rounded-full
+                border border-white/40 text-white
+                flex items-center justify-center
+                active:scale-95
+              "
+            >
+              ‹
+            </button>
+                        
+            <button
+              onClick={() =>
+                scrollToIndex(Math.min(index + 1, images.length - 1))
+              }
+              className="
+                md:hidden
+                absolute
+                right-6
+                -bottom-4
+                w-9 h-9
+                rounded-full
+                border border-white/40 text-white
+                flex items-center justify-center
+                active:scale-95
+              "
+            >
+              ›
+            </button>
             <div className="flex justify-center gap-2 mt-4">
               {images.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => setIndex(i)}
+                  onClick={() => scrollToIndex(i)}
                   className={`w-2.5 h-2.5 rounded-full transition ${
                     i === index
                       ? "bg-white scale-125"
