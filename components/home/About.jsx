@@ -64,7 +64,7 @@ export default function About() {
               onClick={() =>
                 setIndex(index === 0 ? contents.length - 1 : index - 1)
               }
-              className="w-10 h-10 rounded-full border border-black/40 hover:bg-[#3a2a1a] hover:text-white transition"
+              className="w-10 h-10 rounded-full border border-black/40 hover:bg-[#3a2a1a] hover:text-white transition cursor-pointer"
             >
               ←
             </button>
@@ -73,7 +73,7 @@ export default function About() {
               onClick={() =>
                 setIndex((index + 1) % contents.length)
               }
-              className="w-10 h-10 rounded-full border border-black/40 hover:bg-[#3a2a1a] hover:text-white transition"
+              className="w-10 h-10 rounded-full border border-black/40 hover:bg-[#3a2a1a] hover:text-white transition cursor-pointer"
             >
               →
             </button>
