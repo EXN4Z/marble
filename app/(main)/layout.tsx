@@ -22,7 +22,6 @@ export default function MainLayout({
   const [active, setActive] = useState("home");
   const [showArrow, setShowArrow] = useState(false);
 
-  // ================= SCROLL SPY =================
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -33,7 +32,7 @@ export default function MainLayout({
         });
       },
       {
-        rootMargin: "-40% 0px -40% 0px", // tengah layar
+        rootMargin: "-40% 0px -40% 0px",
       }
     );
 
@@ -45,7 +44,6 @@ export default function MainLayout({
     return () => observer.disconnect();
   }, []);
 
-  // ================= SCROLL ARROW =================
   useEffect(() => {
     const onScroll = () => {
       setShowArrow(window.scrollY > 200);
@@ -81,7 +79,7 @@ export default function MainLayout({
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/">
             <Image
-              src="/images/logo3.png"
+              src="/logo/black1.png"
               alt="CarV"
               width={150}
               height={40}
@@ -143,7 +141,7 @@ export default function MainLayout({
         <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
           <div>
             <Image
-              src="/images/logo_white.png"
+              src="/logo/white1.png"
               alt="CarV"
               width={140}
               height={40}
@@ -190,7 +188,6 @@ export default function MainLayout({
         </div>
       </footer>
 
-      {/* ================= SCROLL TO BOTTOM ARROW ================= */}
       <a
         href="#home"
         className={`fixed bottom-6 right-6 z-50
