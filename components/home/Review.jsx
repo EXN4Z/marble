@@ -139,7 +139,7 @@ export default function Review() {
                   </div>
                   <StarRating rating={item.rating} />
 
-                  <p className="text-xs text-gray-600 mt-1 line-clamp-2">
+                  <p className="text-sm text-gray-600 mt-1 line-clamp-2">
                     {item.desc}
                   </p>
 
@@ -149,23 +149,24 @@ export default function Review() {
           </div>
 
           {reviews.length > 3 && (
-  <button
-    onClick={() => setShowMore(!showMore)}
-    className="mt-6 text-sm px-5 py-2 rounded-full transition flex items-center gap-2 cursor-pointer hover:text-[#3a2a1a]"
-  >
-    {showMore ? (
-      <>
-        Show less reviews
-        <span className="mx-1">↑</span>
-      </>
-    ) : (
-      <>
-        Show more reviews
-        <span className="mx-1">↓</span>
-      </>
-    )}
-  </button>
-)}
+            
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="mt-6 text-sm px-5 py-2 rounded-full transition flex items-center gap-2 cursor-pointer hover:text-[#3a2a1a]"
+            >
+              {showMore ? (
+                <>
+                  Show less reviews
+                  <span className="mx-1">↑</span>
+                </>
+              ) : (
+                <>
+                  Show more reviews
+                  <span className="mx-1">↓</span>
+                </>
+              )}
+            </button>
+          )}
 
         </div>
       </div>
