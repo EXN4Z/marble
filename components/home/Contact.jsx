@@ -8,7 +8,6 @@ export default function Contact() {
   const handleSubmit = () => {
     setSent(true);
 
-    // optional: auto hide setelah 3 detik
     setTimeout(() => setSent(false), 3000);
   };
 
@@ -16,7 +15,6 @@ export default function Contact() {
     <section id="contact" className="px-4 md:px-0 py-5">
       <div className="max-w-5xl mx-auto bg-[#8c7c4d]/40 backdrop-blur-md border border-black/10 rounded-lg shadow-md p-10 grid grid-cols-1 md:grid-cols-2 gap-10">
 
-        {/* LEFT */}
         <div>
           <h2 className="text-2xl font-semibold mb-6">
             Custom Wood Carving Order
@@ -49,7 +47,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* RIGHT */}
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <input
@@ -77,7 +74,6 @@ export default function Contact() {
             Send Order Request
           </button>
 
-          {/* ALERT */}
           {sent && (
             <p className="mt-4 text-green-700 bg-green-100 border border-green-300 px-4 py-2 rounded-md text-sm text-center">
               Order sended!

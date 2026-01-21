@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 
 export default function Service() {
+  const router = useRouter();
   const products = [
     {
       id: 1,
@@ -83,7 +85,6 @@ export default function Service() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
-
   return (
     <section id="service" className="max-w-7xl mx-auto px-6 py-10">
       <h2 className="text-3xl font-bold mb-5">Service</h2>
@@ -133,10 +134,16 @@ export default function Service() {
             <div className="p-4 -mx-3">
               <h3 className="text-lg font-semibold">{product.name}</h3>
               <p className="text-gray-600 text-sm">{product.desc}</p>
-
-              <a href="#contact" className="inline-block mt-3 text-white text-sm bg-[#3a2a1a] px-4 py-2 rounded-full">
-                Start {product.price}
-              </a>
+                <button
+                  onClick={() =>
+                    router.push(
+                      `/payment/${product.name.toLowerCase()}?price=${product.price}`
+                    )
+                  }
+                  className="inline-block mt-3 text-white text-sm bg-[#3a2a1a] px-4 py-2 rounded-full"
+                >
+                  Start ${product.price}
+                </button>
             </div>
           </div>
         ))}
@@ -238,7 +245,7 @@ export default function Service() {
             >
               ‹
             </button>
-                        
+
             <button
               onClick={() =>
                 scrollToIndex(Math.min(index + 1, images.length - 1))

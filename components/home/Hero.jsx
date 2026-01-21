@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Model3D from "@/components/Model3D";
 
 export default function Hero() {
@@ -45,14 +44,8 @@ export default function Hero() {
       <div className="relative flex flex-col items-center justify-center">
         <Model3D />
 
-        <div className="flex items-center gap-2 text-black text-sm px-3 py-1 rounded-full pointer-events-none mt-10 border bg-transparent backdrop-blur-xl border-white/20 shadow-md">
-          <Image
-            src="/images/indicator.png"
-            alt="Rotate indicator"
-            width={20}
-            height={20}
-            className="animate-spin-slow"
-          />
+        <div className="flex items-center gap-2 text-black/15 text-xs p-1 rounded-full pointer-events-none mt-10 bg-transparent">
+          <i className="fa-solid fa-rotate animate-spin-slow"></i>
           <span>Drag to rotate</span>
         </div>
       </div>
