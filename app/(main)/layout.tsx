@@ -10,7 +10,8 @@ import {
   FaLinkedinIn,
   FaArrowUp,
 } from "react-icons/fa";
-import Head from "next/dist/shared/lib/head";
+import "@/lib/fontawesome";
+
 
 const sections = ["home", "about", "service", "review", "contact"];
 
@@ -76,14 +77,6 @@ export default function MainLayout({
 
   return (
     <>
-  <Head>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      crossOrigin="anonymous"
-      referrerPolicy="no-referrer"
-    />
-  </Head>
       <header className="">
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/">

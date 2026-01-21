@@ -134,25 +134,37 @@ export default function PaymentPage() {
                 </div>
                 <button
                   onClick={() => setShowChange(!showChange)}
-                  className="text-sm text-[#3a2a1a]"
+                  className="text-sm text-[#3a2a1a] cursor-pointer"
                 >
                   Change
                 </button>
               </div>
 
-              {showChange && (
-                <div className="mt-3 space-y-2">
+              <div
+                className={`
+                  mt-3 space-y-2 overflow-hidden transition-all duration-300
+                  ${showChange ? "max-h-60 opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"}
+                `}
+              >
+                <div className="bg-[#cfcfcf] p-3 rounded-xl shadow-inner border border-black/10">
                   {PRODUCTS.map((item) => (
                     <button
                       key={item.name}
                       onClick={() => handleChangeProduct(item)}
-                      className="w-full text-left text-sm bg-[#d2d2d2] px-3 py-2 rounded hover:bg-[#c0c0c0]"
+                      className="
+                        w-full text-left text-sm
+                        bg-[#dcdcdc]
+                        px-4 py-2 rounded-lg
+                        transition
+                        hover:bg-[#bdbdbd] hover:scale-[1.02]
+                        active:scale-95
+                      "
                     >
                       {item.name} — ${item.price}
                     </button>
                   ))}
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>

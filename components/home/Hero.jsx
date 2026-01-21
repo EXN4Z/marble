@@ -1,4 +1,6 @@
 import Model3D from "@/components/Model3D";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Hero() {
   return (
@@ -35,7 +37,7 @@ export default function Hero() {
 
         <a
           href="#about"
-          className="inline-block mt-8 px-6 py-3 rounded-full bg-[#3a2a1a] text-white shadow-xl"
+          className="inline-block mt-8 px-6 py-3 rounded-full bg-[#3a2a1a] text-white shadow-xl hover:scale-110 transition-transform duration-300"
         >
           Explore Now
         </a>
@@ -44,8 +46,8 @@ export default function Hero() {
       <div className="relative flex flex-col items-center justify-center">
         <Model3D />
 
-        <div className="flex items-center gap-2 text-black/15 text-xs p-1 rounded-full pointer-events-none mt-10 bg-transparent">
-          <i className="fa-solid fa-rotate animate-spin-slow"></i>
+        <div className="flex items-center gap-2 text-black/40 text-xs p-1 rounded-full mt-10">
+          <FontAwesomeIcon icon={faRotateRight} className="animate-spin" />
           <span>Drag to rotate</span>
         </div>
       </div>
