@@ -63,7 +63,7 @@ export default function MainLayout({
           hover:text-[#363636]
           ${isActive ? "text-black font-medium" : "text-black/70"}
           after:absolute after:left-0 after:-bottom-1
-          after:h-[2px] after:bg-black after:transition-all
+          after:h-0.5 after:bg-black after:transition-all
           ${isActive ? "after:w-full" : "after:w-0 hover:after:w-full"}
         `}
         onClick={() => setOpen(false)}
@@ -95,11 +95,11 @@ export default function MainLayout({
           </ul>
 
           <div className="hidden md:flex items-center gap-4">
-            <a href="#contact" className="px-4 py-2 text-md">
+            <a href="/register" className="px-4 py-2 text-md">
               Sign Up
             </a>
             <a
-              href="#contact"
+              href="/login"
               className="px-4 py-2 rounded-full border border-black/40 hover:bg-[#3a2a1a] hover:text-white transition"
             >
               Log In
@@ -127,7 +127,7 @@ export default function MainLayout({
           
           <hr className="border-white/20" />
           
-          <Link href="/login" onClick={() => setOpen(false)}>Sign Up</Link>
+          <Link href="/register" onClick={() => setOpen(false)}>Sign Up</Link>
           <Link href="/login" onClick={() => setOpen(false)}>Log In</Link>
         </div>
 

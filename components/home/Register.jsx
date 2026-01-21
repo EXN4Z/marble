@@ -156,7 +156,7 @@ export default function Login() {
                 cursor-pointer
               "
             >
-              Log In
+              Sign Up
             </button>
           </form>
         </div>

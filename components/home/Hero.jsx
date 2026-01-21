@@ -3,7 +3,10 @@ import Model3D from "@/components/Model3D";
 
 export default function Hero() {
   return (
-    <section id="home" className="max-w-7xl mx-auto px-6 pt-20 grid md:grid-cols-2 gap-12 text-black">
+    <section
+      id="home"
+      className="max-w-7xl mx-auto px-6 pt-20 grid md:grid-cols-2 gap-12 text-black"
+    >
       <div
         className="
           pointer-events-none
@@ -28,14 +31,15 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 text-gray-500">
-          Carv is a small business focused on handcrafted wood carving. It blends traditional carving skills with modern design to create unique and artistic wooden products.
-          Using selected woods like teak and mahogany, each piece is carefully carved by hand. Carv produces wall art, wooden reliefs, plaques, frames, souvenirs, and custom-made carvings.
-          Carv aims to preserve traditional wood carving while adapting it to modern style and needs.
+          Carv is a small business focused on handcrafted wood carving...
         </p>
 
-        <button className="mt-8 px-6 py-3 rounded-full bg-[#3a2a1a] text-white shadow-xl transition">
+        <a
+          href="#about"
+          className="inline-block mt-8 px-6 py-3 rounded-full bg-[#3a2a1a] text-white shadow-xl transition"
+        >
           Explore Now
-        </button>
+        </a>
       </div>
 
       <div className="relative flex flex-col items-center justify-center">

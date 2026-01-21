@@ -86,8 +86,28 @@ export default function Service() {
 
   return (
     <section id="service" className="max-w-7xl mx-auto px-6 py-10">
-      <h2 className="text-3xl font-bold mb-6">Service</h2>
-
+      <h2 className="text-3xl font-bold mb-2">Service</h2>
+      <div className="flex flex-col">
+        <div className="">
+          <p className="text-gray-600 mb-2">
+            High-quality furniture services with modern design and durable materials, crafted for comfort and style.
+          </p>
+        </div>
+        <div className="text-gray-600 mb-8 flex flex-row gap-6">
+          <p>
+            Custom Design
+          </p>
+          <p>
+            Installation
+          </p>
+          <p>
+            Delivery
+          </p>
+          <p>
+            After Sales Support
+          </p>
+        </div>
+      </div>
       <div
         className="
           flex lg:grid gap-8 overflow-x-auto
