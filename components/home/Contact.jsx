@@ -72,7 +72,7 @@ export default function Contact() {
 
           <button
             onClick={handleSubmit}
-            className="w-full bg-[#3a2a1a] hover:bg-[#4a3824] text-white py-3 rounded-md hover:opacity-90 transition"
+            className="w-full bg-[#3a2a1a] hover:bg-[#4a3824] text-white py-3 rounded-md hover:opacity-90 transition cursor-pointer"
           >
             Send Order Request
           </button>
