@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="relative flex flex-col items-center justify-center">
         <Model3D />
 
-        <div className="flex items-center gap-2 text-black bg-white/10 text-sm px-3 py-1 rounded-full pointer-events-none mt-10 backdrop-blur-2xl border border-white/20 shadow-md">
+        <div className="flex items-center gap-2 text-black text-sm px-3 py-1 rounded-full pointer-events-none mt-10 border bg-transparent backdrop-blur-xl border-white/20 shadow-md">
           <Image
             src="/images/indicator.png"
             alt="Rotate indicator"
