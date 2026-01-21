@@ -97,7 +97,13 @@ export default function MainLayout({
           </ul>
 
           <div className="hidden md:flex items-center gap-4">
-            <a href="/register" className="px-4 py-2 text-md">
+            <a
+              href="/register"
+              className="relative mr-2 text-md text-black/70 hover:text-black transition-colors
+                after:absolute after:left-0 after:-bottom-1
+                after:h-0.5 after:bg-black after:transition-all
+                after:w-0 hover:after:w-full"
+            >
               Sign Up
             </a>
             <a
@@ -189,9 +195,8 @@ export default function MainLayout({
           </div>
         </div>
       </footer>
-
-      <a
-        href="#home"
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className={`scroll-to-top
           fixed bottom-6 right-6 z-50
           w-12 h-12 rounded-full
@@ -200,13 +205,13 @@ export default function MainLayout({
           shadow-lg
           transition-all duration-300
           hover:scale-110
+          cursor-pointer
           ${showArrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}
-          gallery-hide
         `}
-              aria-label="Scroll to top"
-            >
+        aria-label="Scroll to top"
+      >
         <FaArrowUp />
-      </a>
+      </button>
     </>
   );
 }

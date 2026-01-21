@@ -107,7 +107,7 @@ export default function Service() {
             High-quality furniture services with modern design and durable materials, crafted for comfort and style.
           </p>
         </div>
-        <div className="text-gray-600 mb-8 flex flex-row gap-6 flex-wrap">
+        <div className="text-gray-600 mb-8 flex flex-row gap-6 flex-wrap md:text-base text-sm sm:text-xs">
           <p>
             Custom Design
           </p>
@@ -232,7 +232,7 @@ export default function Service() {
             <button
               onClick={closeGallery}
               className="
-                absolute md:top-4 md:-right-18 -top-12 right-6
+                absolute md:-top-5 md:-right-52 -top-46 right-3
                 w-9 h-9 rounded-full
                 border border-white/40 text-white
                 hover:bg-[#3a2a1a]
@@ -247,7 +247,7 @@ export default function Service() {
                 md:hidden
                 absolute
                 left-6
-                -bottom-4
+                -bottom-7
                 w-9 h-9
                 rounded-full
                 border border-white/40 text-white
@@ -266,7 +266,7 @@ export default function Service() {
                 md:hidden
                 absolute
                 right-6
-                -bottom-4
+                -bottom-7
                 w-9 h-9
                 rounded-full
                 border border-white/40 text-white
