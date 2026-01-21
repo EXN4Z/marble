@@ -1,7 +1,8 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
 
 const PRODUCTS = [
   { name: "Furniture", price: 10 },
@@ -12,6 +13,7 @@ const PRODUCTS = [
 
 export default function PaymentPage() {
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const defaultProduct = searchParams.get("product") || "Furniture";
   const defaultPrice = Number(searchParams.get("price")) || 10;
@@ -20,38 +22,96 @@ export default function PaymentPage() {
   const [price, setPrice] = useState(defaultPrice);
   const [showChange, setShowChange] = useState(false);
 
+  const [paymentMethod, setPaymentMethod] = useState("card");
+  const [success, setSuccess] = useState(false);
+
   const handleChangeProduct = (item) => {
     setProduct(item.name);
     setPrice(item.price);
     setShowChange(false);
   };
 
+  const handlePay = () => {
+    setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false);
+    }, 3000);
+  };
+
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center justify-center px-6">
+    <section className="relative min-h-screen overflow-hidden flex items-center justify-center px-6 py-4 md:py-0">
       <div
-        className="pointer-events-none absolute inset-[-50%]
-        bg-[linear-gradient(to_right,rgba(140,124,77,0.15)_1px,transparent_1px),
-        linear-gradient(to_bottom,rgba(140,124,77,0.15)_1px,transparent_1px)]
-        bg-size-[90px_90px] rotate-12"
+        className="
+          pointer-events-none
+          absolute
+          inset-[-50%]
+          -z-10
+          rotate-[12deg]
+          bg-[linear-gradient(to_right,rgba(140,124,77,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(140,124,77,0.15)_1px,transparent_1px)]
+          bg-[length:90px_90px]
+        "
       />
 
       <div className="w-full max-w-5xl bg-[#8c7c4d]/40 rounded-md backdrop-blur-md border border-black/10 shadow-2xl py-4 px-6 grid md:grid-cols-2 gap-10">
-
         <div>
-          <a href="#service" className="text-sm">‹ Back</a>
+          <button
+            onClick={() => router.push("/#service")}
+            className="text-sm cursor-pointer"
+          >
+            ‹ Back
+          </button>
 
           <h3 className="text-sm text-black mb-3 mt-3">
             Select Payment Method
           </h3>
 
           <div className="space-y-3">
-            <button className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-[#d2d2d2] border border-black/40">
-              <span className="text-sm text-gray-500">Credit / Debit Card</span>
-              <div className="w-3 h-3 rounded-full bg-[#3a2a1a]" />
+            <button
+              onClick={() => setPaymentMethod("card")}
+              className={`w-full flex items-center justify-between px-4 py-3 rounded-lg border
+              ${paymentMethod === "card"
+                ? "bg-[#d2d2d2] border-black/40"
+                : "bg-[#d2d2d2]/70 border-white/10"}`}
+            >
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/payment/1.png"
+                  alt="card"
+                  width={32}
+                  height={32}
+                  className="w-8"
+                />
+                <span className="text-sm text-gray-500">
+                  Credit / Debit Card
+                </span>
+              </div>
+              
+              {paymentMethod === "card" && (
+                <div className="w-3 h-3 rounded-full bg-[#3a2a1a]" />
+              )}
             </button>
 
-            <button className="w-full flex items-center justify-between px-4 py-3 rounded-lg bg-[#d2d2d2] border border-white/10">
-              <span className="text-sm text-gray-500">PayPal</span>
+            <button
+              onClick={() => setPaymentMethod("paypal")}
+              className={`w-full flex items-center justify-between px-4 py-3 rounded-lg border
+              ${paymentMethod === "paypal"
+                ? "bg-[#d2d2d2] border-black/40"
+                : "bg-[#d2d2d2]/70 border-white/10"}`}
+            >
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/payment/2.png"
+                  alt="paypal"
+                  width={28}
+                  height={28}
+                  className="w-8"
+                />
+                <span className="text-sm text-gray-500">PayPal</span>
+              </div>
+              
+              {paymentMethod === "paypal" && (
+                <div className="w-3 h-3 rounded-full bg-[#3a2a1a]" />
+              )}
             </button>
           </div>
 
@@ -98,7 +158,7 @@ export default function PaymentPage() {
         </div>
 
         <div>
-          <h2 className="text-xl font-semibold text-black mb-6">
+          <h2 className="text-lg text-black mb-6">
             Payment
           </h2>
 
@@ -106,32 +166,64 @@ export default function PaymentPage() {
             Complete your payment securely to proceed with your selected service.
           </p>
 
-          <div className="space-y-4">
-            <input
-              placeholder="Card Holder"
-              className="w-full bg-[#d2d2d2] border border-white/10 px-4 py-3 rounded-lg outline-none"
-            />
-            <input
-              placeholder="Card Number"
-              className="w-full bg-[#d2d2d2] border border-white/10 px-4 py-3 rounded-lg outline-none"
-            />
+          {paymentMethod === "card" && (
+            <div className="space-y-4">
+              <input
+                placeholder="Card Holder"
+                className="w-full bg-[#d2d2d2] border border-white/10 px-4 py-3 rounded-lg outline-none"
+              />
 
-            <div className="grid grid-cols-2 gap-4">
               <input
-                placeholder="MM / YY"
-                className="bg-[#d2d2d2] border border-white/10 px-4 py-3 rounded-lg outline-none"
+                placeholder="Card Number"
+                className="w-full bg-[#d2d2d2] border border-white/10 px-4 py-3 rounded-lg outline-none"
               />
-              <input
-                placeholder="CVV"
-                className="bg-[#d2d2d2] border border-white/10 px-4 py-3 rounded-lg outline-none"
-              />
+
+              <div className="grid grid-cols-2 gap-4">
+                <input
+                  placeholder="MM / YY"
+                  className="bg-[#d2d2d2] border border-white/10 px-4 py-3 rounded-lg outline-none"
+                />
+                <input
+                  placeholder="CVV"
+                  className="bg-[#d2d2d2] border border-white/10 px-4 py-3 rounded-lg outline-none"
+                />
+              </div>
+          
+              <button
+                onClick={handlePay}
+                className="w-full mt-4 bg-[#3a2a1a] hover:bg-[#4a3824] transition text-white py-3 rounded-lg font-medium cursor-pointer"
+              >
+                Pay with Card
+              </button>
             </div>
+          )}
 
-            <button className="w-full mt-4 bg-[#3a2a1a] hover:bg-[#4a3824] transition text-white py-3 rounded-lg font-medium">
-              Pay now
-            </button>
+          {paymentMethod === "paypal" && (
+            <div className="space-y-4">
+              <div className="bg-[#d2d2d2] p-4 rounded-lg text-sm text-gray-600">
+                You will be redirected to PayPal to complete your payment securely.
+              </div>
+          
+              <input
+                placeholder="PayPal Email"
+                className="w-full bg-[#d2d2d2] border border-white/10 px-4 py-3 rounded-lg outline-none"
+              />
+
+              <button
+                onClick={handlePay}
+                className="w-full mt-4 bg-[#3a2a1a] hover:bg-[#4a3824] transition text-white py-3 rounded-lg font-medium cursor-pointer"
+              >
+                Continue with PayPal
+              </button>
+            </div>
+          )}
+        {success && (
+          <div className="mt-4 p-3 rounded-lg bg-green-600/20 text-green-900 text-sm">
+            Payment successful! Thank you for your order.
           </div>
-        </div>
+        )}
+      </div>
+
       </div>
     </section>
   );

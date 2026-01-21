@@ -5,7 +5,25 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 
 export default function Service() {
+  const [open, setOpen] = useState(false);
+  const [images, setImages] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("gallery-open");
+    } else {
+      document.body.classList.remove("gallery-open");
+    }
+
+    return () => {
+      document.body.classList.remove("gallery-open");
+    };
+  }, [open]);
+
   const router = useRouter();
+  const galleryRef = useRef(null);
+
   const products = [
     {
       id: 1,
@@ -53,12 +71,6 @@ export default function Service() {
     },
   ];
 
-  const [open, setOpen] = useState(false);
-  const [images, setImages] = useState([]);
-  const [index, setIndex] = useState(0);
-
-  const galleryRef = useRef(null);
-
   const openGallery = (imgs) => {
     setImages(imgs);
     setIndex(0);
@@ -85,6 +97,7 @@ export default function Service() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
   return (
     <section id="service" className="max-w-7xl mx-auto px-6 py-10">
       <h2 className="text-3xl font-bold mb-5">Service</h2>
@@ -148,7 +161,6 @@ export default function Service() {
           </div>
         ))}
       </div>
-
       {open && (
         <div
           onClick={closeGallery}
@@ -158,7 +170,7 @@ export default function Service() {
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-4xl px-4"
           >
-
+          
             <div
               ref={galleryRef}
               className="
@@ -220,7 +232,7 @@ export default function Service() {
             <button
               onClick={closeGallery}
               className="
-                absolute md:top-4 hidden right-8 
+                absolute md:top-4 md:-right-18 -top-12 right-6
                 w-9 h-9 rounded-full
                 border border-white/40 text-white
                 hover:bg-[#3a2a1a]

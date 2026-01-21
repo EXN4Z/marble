@@ -27,3 +27,11 @@ html {
 .animate-spin-slow {
   animation: spinSlow 3s linear infinite;
 }
+
+body.gallery-open .scroll-to-top {
+  opacity: 0 !important;
+  pointer-events: none;
+  transform: translateY(1rem);
+}
+
+

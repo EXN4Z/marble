@@ -199,7 +199,8 @@ export default function MainLayout({
 
       <a
         href="#home"
-        className={`fixed bottom-6 right-6 z-50
+        className={`scroll-to-top
+          fixed bottom-6 right-6 z-50
           w-12 h-12 rounded-full
           bg-[#3a2a1a] text-white
           flex items-center justify-center
@@ -207,9 +208,10 @@ export default function MainLayout({
           transition-all duration-300
           hover:scale-110
           ${showArrow ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}
+          gallery-hide
         `}
-        aria-label="Scroll to top"
-      >
+              aria-label="Scroll to top"
+            >
         <FaArrowUp />
       </a>
     </>
