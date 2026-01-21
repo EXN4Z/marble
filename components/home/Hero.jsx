@@ -36,7 +36,7 @@ export default function Hero() {
 
         <a
           href="#about"
-          className="inline-block mt-8 px-6 py-3 rounded-full bg-[#3a2a1a] text-white shadow-xl transition"
+          className="inline-block mt-8 px-6 py-3 rounded-full bg-[#3a2a1a] text-white shadow-xl"
         >
           Explore Now
         </a>
@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="relative flex flex-col items-center justify-center">
         <Model3D />
 
-        <div className="flex items-center gap-2 text-black bg-white/20 text-sm px-3 py-1 rounded-full pointer-events-none mt-10">
+        <div className="flex items-center gap-2 text-black bg-white/10 text-sm px-3 py-1 rounded-full pointer-events-none mt-10 backdrop-blur-2xl border border-white/20 shadow-md">
           <Image
             src="/images/indicator.png"
             alt="Rotate indicator"
