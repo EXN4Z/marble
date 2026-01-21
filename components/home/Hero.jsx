@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="max-w-7xl mx-auto px-6 pt-20 grid md:grid-cols-2 gap-12 text-black"
+      className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 text-black"
     >
       <div
         className="
@@ -31,7 +31,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-6 text-gray-500">
-          Carv is a small business focused on handcrafted wood carving...
+          Carv is a small business focused on handcrafted wood carving, where each piece is thoughtfully designed and carefully made by skilled artisans. Using high-quality wood and traditional carving techniques, Carv creates unique products that highlight natural textures, fine details, and lasting durability. Every item is crafted with attention to detail, ensuring not only aesthetic beauty but also functional value, making each creation feel personal, authentic, and timeless.
         </p>
 
         <a
@@ -45,7 +45,7 @@ export default function Hero() {
       <div className="relative flex flex-col items-center justify-center">
         <Model3D />
 
-        <div className="flex items-center gap-2 text-black bg-white/50 text-sm px-3 py-1 rounded-full pointer-events-none mt-10">
+        <div className="flex items-center gap-2 text-black bg-white/20 text-sm px-3 py-1 rounded-full pointer-events-none mt-10">
           <Image
             src="/images/indicator.png"
             alt="Rotate indicator"

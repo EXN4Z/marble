@@ -86,14 +86,14 @@ export default function Service() {
 
   return (
     <section id="service" className="max-w-7xl mx-auto px-6 py-10">
-      <h2 className="text-3xl font-bold mb-2">Service</h2>
+      <h2 className="text-3xl font-bold mb-5">Service</h2>
       <div className="flex flex-col">
         <div className="">
-          <p className="text-gray-600 mb-2">
+          <p className="text-gray-600 md:mb-5 mb-7">
             High-quality furniture services with modern design and durable materials, crafted for comfort and style.
           </p>
         </div>
-        <div className="text-gray-600 mb-8 flex flex-row gap-6">
+        <div className="text-gray-600 mb-8 flex flex-row gap-6 flex-wrap">
           <p>
             Custom Design
           </p>
@@ -134,9 +134,9 @@ export default function Service() {
               <h3 className="text-lg font-semibold">{product.name}</h3>
               <p className="text-gray-600 text-sm">{product.desc}</p>
 
-              <span className="inline-block mt-3 text-white text-sm bg-[#3a2a1a] px-4 py-2 rounded-full">
+              <a href="#contact" className="inline-block mt-3 text-white text-sm bg-[#3a2a1a] px-4 py-2 rounded-full">
                 Start {product.price}
-              </span>
+              </a>
             </div>
           </div>
         ))}
