@@ -32,8 +32,8 @@ export default function Service() {
       price: "$10",
       images: [
         "/service/furniture/service1.jpg",
-        "/service/furniture/service2.jpg",
-        "/service/furniture/service3.jpg",
+        "/images/rev3.jpg",
+        "/images/image2.png",
       ],
     },
     {
