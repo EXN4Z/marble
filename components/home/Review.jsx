@@ -80,7 +80,7 @@ export default function Review() {
   const visibleReviews = showMore ? reviews : reviews.slice(0, 4);
 
   return (
-    <section id="review" className="max-w-7xl mx-auto px-6 py-25">
+    <section id="review" className="max-w-7xl mx-auto px-6 pb-15">
       <h2 className="text-3xl font-bold mb-10">Customer Reviews</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
@@ -88,7 +88,7 @@ export default function Review() {
           <div className="bg-[#8c7c4d]/40 backdrop-blur-md border border-black/10 p-6 rounded-sm h-full flex flex-col justify-center">
             <Image
               className="rounded-3xl mx-auto"
-              src="/images/rate.png"
+              src="/images/review.png"
               alt="Hero Image"
               width={300}
               height={300}

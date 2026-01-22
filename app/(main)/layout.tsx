@@ -88,7 +88,7 @@ export default function MainLayout({
             />
           </Link>
 
-          <ul className="hidden md:flex items-center gap-8 -mr-90">
+          <ul className="hidden md:flex items-center gap-8">
             <li>{navItem("home", "Home")}</li>
             <li>{navItem("about", "About")}</li>
             <li>{navItem("service", "Service")}</li>

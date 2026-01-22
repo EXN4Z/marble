@@ -99,7 +99,7 @@ export default function Service() {
   }, []);
 
   return (
-    <section id="service" className="max-w-7xl mx-auto px-6 py-10">
+    <section id="service" className="max-w-7xl mx-auto px-6 py-40">
       <h2 className="text-3xl font-bold mb-5">Service</h2>
       <div className="flex flex-col">
         <div className="">

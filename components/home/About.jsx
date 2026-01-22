@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const contents = [
   {
-    title: "Who We Are",
+    title: "About Us",
     desc1:
       "We are a team of dedicated craftsmen who specialize in handcrafted wood carving and custom furniture. Every piece we create is made with attention to detail, patience, and deep respect for traditional woodworking techniques.",
     desc2:
@@ -33,12 +33,11 @@ export default function About() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-15" id="about">
-      <h2 className="text-3xl font-bold">About Us</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         <div className="mx-auto">
           <Image
-            src="/images/about2.png"
+            src="/images/image_1.png"
             alt="About Image"
             width={500}
             height={400}
